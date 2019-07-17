@@ -6,29 +6,32 @@ require("dotenv").config()
 
 mongoose.connect(process.env.MONGODB_URI);
 
-const Category = [
+const category = [
   { title: 'Bench Grinder Wheels',
-    image: 'Bench-1.jpg' 
+    image: '../images/bench/Bench-1.jpg' 
   },
   { title: 'Surface Grinder Wheels',
-    image: 'surface-1.jpg'
+    image: '../images/surface/surface-1.jpg'
   },
   { title: 'Diamond Dresser',
-    image: 'dresser-1.jpg'
+    image: '../images/diamond-dresser/dresser-1.jpg'
   },
   { title: 'Metal Bond',
-    image: 'metal-1.jpg'
+    image: '../images/metal-bond/metal-1.jpg'
   },
   { title: 'Mounted Points',
-    image: 'point-1.jpg'
+    image: '../images/mounted-points/point-1.jpg'
   },
   { title: 'Traditional Grinder Wheels',
-    image: 'tool-books.jpg'
+    image: '../images/traditional/t-1.jpg'
   },
 ]
 
-Category.create(cetegory, (err) => {
-  if (err) { throw(err) }
-  console.log(`Created ${cetegory.length} cetegory`)
-  mongoose.connection.close();
-});
+Category.deleteMany()
+  .then(()=>{
+    Category.create(category, (err) => {
+      if (err) { throw(err) }
+      console.log(`Created ${category.length} category`)
+      mongoose.connection.close();
+    });
+  })

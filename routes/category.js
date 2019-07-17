@@ -5,9 +5,17 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const Category = require('../models/category');
 
+// GET '/category'
+router.get('/', (req, res, next) => {
+  Category.find()
+    .then(allCategory => {
+      res.json(allCategory)
+    })
+    .catch(err => {res.json(err)})
+});
 
 //POST '/category'
-router.get('/', ( req, res, next) =>{
+router.post('/', ( req, res, next) =>{
   const {title, image} = req.body;
   
   Category.create({ title, image})
@@ -19,9 +27,5 @@ router.get('/', ( req, res, next) =>{
   })
 })
 
-// GET '/category'
-router.get('/', ( req, res, next) => {
-  Category.find()
-    .then(allCategory => {res.json(allCategory)})
-    .catch(err => {res.json(err)})
-});
+
+module.exports = router;
