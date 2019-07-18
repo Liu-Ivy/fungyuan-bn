@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "seedsCategory": "node ./bin/seedsCategory"
+    "seedsCategory": "node ./bin/seedsCategory",
+    "seedsProduct": "node ./bin/seedsProduct"
   },
   "engines": {
     "node": "10.11.0",
