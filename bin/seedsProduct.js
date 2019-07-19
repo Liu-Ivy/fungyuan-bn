@@ -89,13 +89,13 @@ const product = [
   },
   {
     name: 'Heavy Duty Diamond Grinding Wheel',
-    img: 'public/images/traditional/t-2.jpg',
+    img: '../images/traditional/t-2.jpg',
     description: 'Diamond Ground Products is dedicated to the improvement of weld quality & welder productivity, and maintains a reputation as the industry leader in tungsten and tungsten preparation. Our ongoing management philosophy is to provide quality product and receptive service that exceeds even the most stringent expectations. Contact DGP today to see how we can help with your current or future welding applications.',
     category_id:'5d2f52d57515ed6cd44c5509'
   },
   {
     name: 'Sharpshooter 300 Grit Grinding Wheel – 6″ Diameter',
-    img: 'public/images/traditional/t-3.jpg',
+    img: '../images/traditional/t-3.jpg',
     description: 'Sharpshooter is a registered trademarks of Pro-Fusion Technologies. Diamond Ground Products is in no way affiliated with Pro-Fusion® Technologies or their brand names. We supply high quality replacement parts manufactured by or for Diamond Ground Products to demanding specifications. The parts are engineered to be interchangeable with Pro-Fusion® parts, are not OEM parts and are not endorsed by Pro-Fusion®. References to the named machines, model numbers or part numbers are for your convenience only.',
     category_id:'5d2f52d57515ed6cd44c5509'
   }

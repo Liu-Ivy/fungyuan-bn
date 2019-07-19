@@ -10,7 +10,7 @@ router.get('/:id', (req, res) => {
   console.log('req.params', req.params)
   const { id } = req.params;
 
-  Product.find( {category_id: id })
+  Product.find( {category_id: id }).populate('category_id')
     .then( (foundProduct) => {
       res.status(200).json(foundProduct);
     })
