@@ -13,7 +13,6 @@ const {
 } = require('../helpers/middlewares');
 
 router.get('/me', isLoggedIn(), (req, res, next) => {
-  console.log('req.session.currentUser', req.session.currentUser)
   res.json(req.session.currentUser);
 });
 
