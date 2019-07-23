@@ -7,8 +7,8 @@ const Product = require('../models/product');
 const parser = require('../config/cloudinary');
 
 //GET '/product'
-router.get('/:id', (req, res) => {
-  console.log('req.params', req.params)
+router.get('/getCategory/:id', (req, res) => {
+  // console.log('req.params', req.params)
   const { id } = req.params;
 
   Product.find( {category_id: id }).populate('category_id')
@@ -20,13 +20,27 @@ router.get('/:id', (req, res) => {
     })
 });
 
+router.get('/getOne/:id', (req, res) => {
+  // console.log('req.params', req.params)
+  const { id } = req.params;
+
+  Product.findById( id )
+    .then( (Product) => {
+      res.status(200).json(Product);
+    })
+    .catch((err) => {
+      res.res.status(500).json(err);
+    })
+});
+
+
+
 //POST '/product'
 router.post('/', ( req, res, next) =>{
   const { name, imageUrl, description, category_id} = req.body;
   const newProduct = new Product({name, img: imageUrl, description, category_id})
   
-  // console.log('req.body', name,imageUrl, description, category_id)
-  // const saveProduct = newProduct.save()
+  const saveProduct = newProduct.save()
   
   Product.create({ name, img: imageUrl, description, category_id})
   .then((response)=>{
