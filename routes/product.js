@@ -47,6 +47,19 @@ router.post('/image', parser.single('photo'), (req, res, next) => {
   res.json(imageUrl).status(200);
 });
 
+//Delete '/:id'
+router.delete('/:id', (req, res) => {
+  Product.findByIdAndRemove(req.params.id)
+  .then((response) => {
+    res
+      .status(202) 
+      .json(response);
+  })
+  .catch( err => {
+    res.status(500).json(err);
+  })
+})
+
 
 
 module.exports = router;
