@@ -23,7 +23,7 @@ const category = [
     image: '../images/mounted-points/point-1.jpg'
   },
   { title: 'Traditional Grinder Wheels',
-    image: '../images/traditional/t-1.jpg'
+    image: '../images/traditional/t-1.png'
   },
 ]
 
