@@ -8,9 +8,7 @@ const parser = require('../config/cloudinary');
 
 //GET '/product'
 router.get('/getCategory/:id', (req, res) => {
-  // console.log('req.params', req.params)
   const { id } = req.params;
-
   Product.find( {category_id: id }).populate('category_id')
     .then( (foundProduct) => {
       res.status(200).json(foundProduct);
@@ -21,9 +19,7 @@ router.get('/getCategory/:id', (req, res) => {
 });
 
 router.get('/getOne/:id', (req, res) => {
-  // console.log('req.params', req.params)
   const { id } = req.params;
-
   Product.findById( id )
     .then( (Product) => {
       res.status(200).json(Product);
@@ -33,15 +29,11 @@ router.get('/getOne/:id', (req, res) => {
     })
 });
 
-
-
 //POST '/product'
 router.post('/', ( req, res, next) =>{
   const { name, imageUrl, description, category_id} = req.body;
   const newProduct = new Product({name, img: imageUrl, description, category_id})
-  
   const saveProduct = newProduct.save()
-  
   Product.create({ name, img: imageUrl, description, category_id})
   .then((response)=>{
     res.status(201).json(response);
@@ -53,7 +45,6 @@ router.post('/', ( req, res, next) =>{
 
 //POST '/image'
 router.post('/image', parser.single('photo'), (req, res, next) => {
-  console.log('file upload');
   if (!req.file) {
     next(new Error('No file uploaded!'));
   };
@@ -73,7 +64,5 @@ router.delete('/:id', (req, res) => {
     res.status(500).json(err);
   })
 })
-
-
 
 module.exports = router;
