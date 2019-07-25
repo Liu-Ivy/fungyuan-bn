@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "seedsCategory": "node ./bin/seedsCategory",
-    "seedsProduct": "node ./bin/seedsProduct"
+    "seedsProduct": "node ./bin/seedsProduct",
+    "seedsProduct2": "node ./bin/seedsProduct2"
   },
   "engines": {
     "node": "10.11.0",
